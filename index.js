@@ -1,12 +1,19 @@
 const Discord = require('discord.js');
+const fetch = require('node-fetch');
+const querystring = require('querystring');
 const config = require('./config.json');
 const client = new Discord.Client();
+
+const trim = (str, max) => (str.length > max ? `${str.slice(0, max - 3)}...` : str);
+
 
 client.once('ready', () => {
 	console.log('Ready!');
 });
 
-client.on('message', message => {
+
+
+client.on('message', async message => {
     if (!message.content.startsWith(config.prefix) || message.author.bot) return;
 
 const args = message.content.slice(config.prefix.length).split(/ +/);
@@ -24,6 +31,37 @@ if(command==='square'){
 }
 
     console.log(message.content);
+
+
+    if (command === 'quote') {
+
+        
+        // if (!args.length) {
+        //   return message.channel.send('You need to supply a search term!');
+        // }
+
+        const query = querystring.stringify({ term: args.join(' ') });
+       var list = [];
+    list = await fetch(`https://type.fit/api/quotes`).then(response => response.json())
+
+var num = Math.floor(Math.random()*100);
+
+
+
+
+		const embed = new Discord.MessageEmbed()
+			.setColor('#EFFF00')
+			.setTitle('Quote')
+			.addFields(
+				{ name: 'Quote', value: trim(list[num].text, 1024) },
+				{ name: 'author', value: trim(list[num].author, 1024) },
+			);
+		message.channel.send(embed)
+
+
+}
+
+
     if (message.content === config.prefix +'ping') {
 
         message.channel.send('Pong.');
@@ -41,7 +79,17 @@ if(command==='square'){
     }
 
     else if (message.content === config.prefix + 'help'){
-        message.channel.send('All commands : git ping\ngit pong\n\git server\ngit user-info\ngit square\ngit help');
+        const embed= new Discord.MessageEmbed()
+                .setColor('#EFFF00')
+                .setTitle('Help')
+                .addFields(
+                    {value: 'git pong'},
+                    {value: 'git ping'},
+                    {value: 'git server'},
+                    {value: 'git user-info'},
+                    {value: 'git square'}
+                );
+        message.channel.send(embed);
     }
 
 

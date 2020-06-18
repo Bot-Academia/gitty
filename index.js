@@ -11,7 +11,7 @@ client.once('ready', () => {
 	console.log('Ready!');
 });
 
-
+var randomColor = Math.floor(Math.random()*16777215).toString(16);
 
 client.on('message', async message => {
     if (!message.content.startsWith(config.prefix) || message.author.bot) return;
@@ -36,9 +36,7 @@ if(command==='square'){
     if (command === 'quote') {
 
         
-        // if (!args.length) {
-        //   return message.channel.send('You need to supply a search term!');
-        // }
+       
 
         const query = querystring.stringify({ term: args.join(' ') });
        var list = [];
@@ -57,6 +55,38 @@ var num = Math.floor(Math.random()*100);
 				{ name: 'author', value: trim(list[num].author, 1024) },
 			);
 		message.channel.send(embed)
+
+
+}
+
+if (command === 'user') {
+
+        
+    if (!args.length) {
+      return message.channel.send('You need to supply a search term!');
+    }
+
+    
+
+   var list = [];
+list = await fetch(`https://api.github.com/users/${args}`).then(response => response.json());
+
+
+
+
+
+
+    const embed = new Discord.MessageEmbed()
+        .setColor('#'+randomColor)
+        .setTitle('Github User')
+        .addFields(
+            { name: 'Name', value: trim(list.name, 1024) },
+            { name: 'Location', value: trim(list.location, 1024) },
+            { name: 'Bio', value: trim(list.bio, 1024) },
+            { name: 'Public Repos', value: trim(list.public_repos, 1024) },
+            { name: 'URL', value: trim(list.html_url, 1024) },
+        );
+    message.channel.send(embed)
 
 
 }
@@ -87,7 +117,9 @@ var num = Math.floor(Math.random()*100);
                     {value: 'git ping'},
                     {value: 'git server'},
                     {value: 'git user-info'},
-                    {value: 'git square'}
+                    {value: 'git square'},
+                    {value: 'git user'},
+                    {value: 'git quote'}
                 );
         message.channel.send(embed);
     }

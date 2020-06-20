@@ -20,5 +20,6 @@ module.exports = {
       )
       .setFooter('Check [git about] to know about me 🤖');
     message.author.send(embed);
+
   },
 };

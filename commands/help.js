@@ -13,7 +13,8 @@ module.exports={
             {name:'member info',value: 'git memberinfo'},
             {name:'square any num',value: 'git square'},
             {name:'github info',value: 'git user'},
-            {name:'quote for life',value: 'git quote'}
+            {name:'quote for life',value: 'git quote'},
+            {name:'Get org info',value: 'git org'}
         );
 message.channel.send(embed);
     }

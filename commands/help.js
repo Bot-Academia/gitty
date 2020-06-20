@@ -18,6 +18,6 @@ module.exports = {
         {name:'quote for life',value: 'git quote'},
         { name: "Get org info", value: "git org" }
       );
-    message.channel.send(embed);
+    message.reply(embed);
   },
 };

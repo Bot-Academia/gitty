@@ -17,7 +17,10 @@ module.exports = {
           
       
          var list = [];
-      list = await fetch(`https://api.github.com/users/${args}`).then(response => response.json());
+      list = await fetch(`https://api.github.com/users/${args}`,{
+        headers: {
+          authorization: "token "+process.env.GITHUB_TOKEN
+        }}).then(response => response.json());
       
       
       

@@ -14,12 +14,11 @@ module.exports = {
     }
 
     var list = [];
-    list = await fetch(`https://api.github.com/orgs/${args}`,{
+    list = await fetch(`https://api.github.com/orgs/${args}`, {
       headers: {
-        authorization: "token "+process.env.GITHUB_TOKEN
-      }}).then((response) =>
-      response.json()
-    );
+        authorization: "token " + process.env.GITHUB_TOKEN,
+      },
+    }).then((response) => response.json());
 
     var things = [list.description, list.public_repos, list.email, list.blog];
     var display = [];

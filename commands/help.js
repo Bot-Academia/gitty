@@ -15,7 +15,7 @@ module.exports = {
         {name:'PR list of a github repo',value: 'git pulls'},
         {name:'Add a default organization',value: 'git addorg'},
         {name:'github info',value: 'git user'},
-        {name:'quote for life',value: 'git quote'}
+        {name:'quote for life',value: 'git quote'},
         { name: "Get org info", value: "git org" }
       );
     message.channel.send(embed);

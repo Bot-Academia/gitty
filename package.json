@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ."
+    "start": "node index.js"
   },
   "keywords": [
     "discord"
@@ -19,5 +19,9 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
-  }
+  },
+   "engines": {
+    "node": "12.18.0",
+    "npm": "6.14.5"
+  },
 }

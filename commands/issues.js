@@ -24,7 +24,10 @@ module.exports = {
          var list = [];
 
 
-      list = await fetch(`https://api.github.com/repos/${config.org}/${args}/issues`).then(response => response.json());
+      list = await fetch(`https://api.github.com/repos/${config.org}/${args}/issues`,{
+        headers: {
+          authorization: "token "+process.env.GITHUB_TOKEN
+        }}).then(response => response.json());
       
       
           const embed = new Discord.MessageEmbed()

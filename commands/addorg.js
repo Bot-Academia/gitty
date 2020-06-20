@@ -6,6 +6,6 @@ module.exports={
     description: "sets the org name",
     execute(message,args){
         config.org=args;
-        message.channel.send("Added "+ args + "as a organization");
+        message.channel.send("Added "+ args + " as a organization");
     }
 }

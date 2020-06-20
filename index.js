@@ -1,3 +1,5 @@
+
+require('dotenv').config();
 const fs = require('fs');
 const Discord = require('discord.js');
 const fetch = require('node-fetch');
@@ -45,7 +47,7 @@ const command = args.shift().toLowerCase();
 
 });
 
-bot.login(config.token);
+bot.login(process.env.BOT_TOKEN);
 
 
 

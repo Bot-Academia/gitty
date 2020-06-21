@@ -14,7 +14,17 @@ module.exports = {
       return message.channel.send("You need to supply a search term!");
     }
 
-    if (!config.org) {
+    var orgname=null;
+
+
+    for(var i=0;i<config.user.length;i++){
+      if(config.user[i].guildname===message.guild.name)
+         {
+           orgname=config.user[i].org;
+         }
+ }
+
+    if (!orgname) {
       return message.channel.send(
         "No organization added. Please add organization using git addorg <name>"
       );
@@ -23,7 +33,7 @@ module.exports = {
     var list = [];
 
     list = await fetch(
-      `https://api.github.com/repos/${config.org}/${args}/pulls`,
+      `https://api.github.com/repos/${orgname}/${args}/pulls`,
       {
         headers: {
           authorization: "token " + process.env.GITHUB_TOKEN,

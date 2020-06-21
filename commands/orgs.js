@@ -11,11 +11,21 @@ module.exports = {
       str.length > max ? `${str.slice(0, max - 3)}...` : str;
 
 
+      var orgname=null;
+
+
+      for(var i=0;i<config.user.length;i++){
+        if(config.user[i].guildname===message.guild.name)
+           {
+             orgname=config.user[i].org;
+           }
+   }
+
     if (!args.length) {
-      if(!config.org.length)
+      if(!orgname.length)
       return message.channel.send("You need to supply a search term!");
       else
-      args=config.org;
+      args=orgname;
     }
 
     var list = [];

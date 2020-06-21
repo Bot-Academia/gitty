@@ -37,7 +37,7 @@ module.exports = {
 
     const embed = new Discord.MessageEmbed()
       .setColor("#" + randomColor)
-      .setTitle("Github User")
+      .setTitle("Github Org")
       .addFields(
         { name: "Description", value: trim(display[0], 1024) },
         { name: "Public Repos of this org", value: trim(display[1], 1024) },

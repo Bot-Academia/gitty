@@ -1,6 +1,9 @@
 {
   "prefix": "git ",
-  "user": [{
-    "guildname": "servername",
-    "org": "args"}]
+  "user": [
+    {
+      "guildname": "servername",
+      "org": "args"
+    }
+  ]
 }

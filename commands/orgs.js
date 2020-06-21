@@ -1,6 +1,6 @@
 const fetch = require("node-fetch");
 const Discord = require("discord.js");
-const config = require('../config.json');
+const config = require("../config.json");
 
 module.exports = {
   name: "org",
@@ -10,22 +10,18 @@ module.exports = {
     const trim = (str, max) =>
       str.length > max ? `${str.slice(0, max - 3)}...` : str;
 
+    var orgname = null;
 
-      var orgname=null;
-
-
-      for(var i=0;i<config.user.length;i++){
-        if(config.user[i].guildname===message.guild.name)
-           {
-             orgname=config.user[i].org;
-           }
-   }
+    for (var i = 0; i < config.user.length; i++) {
+      if (config.user[i].guildname === message.guild.name) {
+        orgname = config.user[i].org;
+      }
+    }
 
     if (!args.length) {
-      if(!orgname)
-      return message.channel.send("You need to supply a search term!");
-      else
-      args=orgname;
+      if (!orgname)
+        return message.channel.send("You need to supply a search term!");
+      else args = orgname;
     }
 
     var list = [];

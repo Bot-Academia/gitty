@@ -14,15 +14,13 @@ module.exports = {
       return message.channel.send("You need to supply a search term!");
     }
 
-    var orgname=null;
+    var orgname = null;
 
-
-    for(var i=0;i<config.user.length;i++){
-      if(config.user[i].guildname===message.guild.name)
-         {
-           orgname=config.user[i].org;
-         }
- }
+    for (var i = 0; i < config.user.length; i++) {
+      if (config.user[i].guildname === message.guild.name) {
+        orgname = config.user[i].org;
+      }
+    }
 
     if (!orgname) {
       return message.channel.send(
@@ -45,13 +43,20 @@ module.exports = {
       .setColor("#" + randomColor)
       .setTitle("Repo PRs");
 
-    for (let i = 0; i < list.length; i++) {
-      var link = trim(list[i].html_url, 1024);
-      var issue = trim(list[i].title, 1024);
+    if (list.length) {
+      for (let i = 0; i < list.length; i++) {
+        var link = trim(list[i].html_url, 1024);
+        var issue = trim(list[i].title, 1024);
 
+        embed.addFields({
+          name: "PR #" + list[i].number,
+          value: `[${issue}](${link})`,
+        });
+      }
+    } else {
       embed.addFields({
-        name: "PR #" + list[i].number,
-        value: `[${issue}](${link})`,
+        name: "error",
+        value: "This repo has no PR",
       });
     }
 

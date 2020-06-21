@@ -13,8 +13,18 @@ module.exports = {
     if (!args.length) {
       return message.channel.send("You need to supply a search term!");
     }
+    
+var orgname=null;
 
-    if (!config.org) {
+
+for(var i=0;i<config.user.length;i++){
+  if(config.user[i].guildname===message.guild.name)
+     {
+       orgname=config.user[i].org;
+     }
+}
+
+    if (!orgname) {
       return message.channel.send(
         "No organization added. Please add organization using git addorg <name>"
       );
@@ -23,7 +33,7 @@ module.exports = {
     var list = [];
 
     list = await fetch(
-      `https://api.github.com/repos/${config.org}/${args}/issues`,
+      `https://api.github.com/repos/${orgname}/${args}/issues`,
       {
         headers: {
           authorization: "token " + process.env.GITHUB_TOKEN,
@@ -36,12 +46,9 @@ module.exports = {
       .setTitle("Repo Issues");
 
     for (let i = 0; i < list.length; i++) {
-      var link = trim(list[i].html_url, 1024);
-      var issue = trim(list[i].title, 1024);
-
       embed.addFields({
-        name: "Issue #" + list[i].number,
-        value: `[${issue}](${link})`,
+        name: "Issue " + (i + 1),
+        value: trim(list[i].title, 1024),
       });
     }
 

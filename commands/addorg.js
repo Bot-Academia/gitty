@@ -6,6 +6,7 @@ const axios = require('axios');
 module.exports = {
   name: "addorg",
   description: "sets the org name",
+  guildOnly: true,
   execute(message, args) {
     if(!args.length)
     {return message.channel.send("You need to supply a search term!");}

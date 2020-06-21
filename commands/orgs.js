@@ -22,7 +22,7 @@ module.exports = {
    }
 
     if (!args.length) {
-      if(!orgname.length)
+      if(!orgname)
       return message.channel.send("You need to supply a search term!");
       else
       args=orgname;

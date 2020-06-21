@@ -45,12 +45,25 @@ for(var i=0;i<config.user.length;i++){
       .setColor("#" + randomColor)
       .setTitle("Repo Issues");
 
-    for (let i = 0; i < list.length; i++) {
-      embed.addFields({
-        name: "Issue " + (i + 1),
-        value: trim(list[i].title, 1024),
-      });
-    }
+      if(list.length){
+        for (let i = 0; i < list.length; i++) {
+
+          var link = trim(list[i].html_url, 1024)
+          var issue = trim(list[i].title, 1024)
+    
+          embed.addFields({
+            name: "Issue #" + list[i].number,
+            value: `[${issue}](${link})`,
+          });
+        }
+      }else{
+        embed.addFields({
+          name: "error",
+          value: "This repo has no issues",
+        });
+      }
+
+    
 
     message.channel.send(embed);
   },

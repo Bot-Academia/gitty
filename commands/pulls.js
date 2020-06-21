@@ -45,15 +45,23 @@ module.exports = {
       .setColor("#" + randomColor)
       .setTitle("Repo PRs");
 
-    for (let i = 0; i < list.length; i++) {
-      var link = trim(list[i].html_url, 1024);
-      var issue = trim(list[i].title, 1024);
+      if(list.length){
+        for (let i = 0; i < list.length; i++) {
 
-      embed.addFields({
-        name: "PR #" + list[i].number,
-        value: `[${issue}](${link})`,
-      });
-    }
+          var link = trim(list[i].html_url, 1024)
+          var issue = trim(list[i].title, 1024)
+    
+          embed.addFields({
+            name: "PR #" + list[i].number,
+            value: `[${issue}](${link})`,
+          });
+        }
+      }else{
+        embed.addFields({
+          name: "error",
+          value: "This repo has no PR",
+        });
+      }
 
     message.channel.send(embed);
   },

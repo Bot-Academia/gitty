@@ -36,9 +36,8 @@ module.exports = {
       .setTitle("Repo Issues");
 
     for (let i = 0; i < list.length; i++) {
-
-      var link = trim(list[i].html_url, 1024)
-      var issue = trim(list[i].title, 1024)
+      var link = trim(list[i].html_url, 1024);
+      var issue = trim(list[i].title, 1024);
 
       embed.addFields({
         name: "Issue #" + list[i].number,

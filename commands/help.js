@@ -18,7 +18,7 @@ module.exports = {
         {name:'PR list of a github repo',value: 'git pulls',inline:true},
         {name:'Add a default organization',value: 'git addorg',inline:true},
       )
-      .setFooter('Check [git about] to know about me 🤖');
+      .setFooter('Check [git about] to know about me 🤖 or vist me:[My Home](https://gittybot.netlify.app/)');
     message.author.send(embed);
 
   },

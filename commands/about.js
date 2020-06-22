@@ -14,7 +14,7 @@ module.exports = {
       .setThumbnail(message.client.user.displayAvatarURL())
       .addField("Bot Name", `Gitty`, true)
       .addField(
-        "Come visit my house",
+        "Come visit me",
         "[My Home](https://gittybot.netlify.app/)"
       )
       .addField(

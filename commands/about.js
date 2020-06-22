@@ -15,7 +15,7 @@ module.exports = {
       .addField("Bot Name", `Gitty`, true)
       .addField(
         "Come visit my house",
-        "[Github](https://github.com/Bot-Academia/gitty)"
+        "[My Home](https://gittybot.netlify.app/)"
       )
       .addField(
         "I was born at Bot-Academia",

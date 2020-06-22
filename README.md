@@ -1,4 +1,4 @@
-# gitty
+# Gitty
 A discord-bot for open source communities
 
 Gitty is a bot for [Discord](https://discord.com) that allows open source communities work with github with out leaving Discord . It integrates github api for giving the information you need to run your community.

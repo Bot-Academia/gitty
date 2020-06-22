@@ -11,7 +11,7 @@ module.exports = {
       .addFields(
         {name:'server info',value: 'git serverinfo',inline: true},
         {name:'member info',value: 'git memberinfo',inline: true},
-        { name:'Get org info', value: "git org <orgname>",inline:true},
+        {name:'Get org info', value: "git org <orgname>",inline:true},
         {name:'github info',value: 'git user <username>',inline:true},
         {name:'quote for life',value: 'git quote',inline:true},
         {name:'Issue list of a github repo',value: 'git issues <reponame>',inline:true},

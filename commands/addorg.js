@@ -38,7 +38,4 @@ module.exports = {
     }
   },
 
-  // axios.put(process.env.FIREBASE+servername+'.json',{org:config.org})
-  //    .then(res=>console.log(res.data))
-  //    .catch(error=>console.log(error));
 };

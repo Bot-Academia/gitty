@@ -23,6 +23,6 @@ module.exports = {
         true
       );
 
-    message.author.send(botInfoEmbed);
+    message.channel.send(botInfoEmbed);
   },
 };

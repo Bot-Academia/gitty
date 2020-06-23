@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 const Discord = require("discord.js");
 
 module.exports = {
-  name: "user",
+  name: "user-info",
   description: "Tells github info",
   async execute(message, args) {
     var randomColor = Math.floor(Math.random() * 16777215).toString(16);

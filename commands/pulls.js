@@ -44,15 +44,22 @@ module.exports = {
       .setTitle("Repo PRs");
 
     if (list.length) {
-      for (let i = 0; i < list.length; i++) {
+      for (let i = 0; i < list.length && i<24; i++) {
         var link = trim(list[i].html_url, 1024);
         var issue = trim(list[i].title, 1024);
 
         embed.addFields({
           name: "PR #" + list[i].number,
           value: `[${issue}](${link})`,
+          inline: true,
         });
       }
+      if(list.length>25){
+        embed.addFields({
+            name: "Limit Reached",
+            value: "25 is the max limit",
+          });
+    }
     } else {
       embed.addFields({
         name: "error",

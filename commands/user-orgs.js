@@ -34,7 +34,7 @@ module.exports = {
   if (list.length) {
     for (let i = 0; i < list.length && i<24; i++) {
       var link = list[i].html_url;
-      var org = list[i].login;
+      var org = list[i].name;
         var count = i + 1;
       embed.addFields({
         name: "Org #" + count,

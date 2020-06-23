@@ -12,8 +12,8 @@ module.exports = {
       .addFields(
         {name:"Repo Details",value: "`git repo-info <owner/repo>`",inline: true},
         {name:"Repo Contributors",value: "`git repo-contri <owner/repo>`",inline: true},
-        {name:"Repo issues",value: "`git user-issue <owner/repo>`",inline: true},
-        {name:"Repo pulls",value: "`git user-pull <owner/repo>`",inline: true},
+        {name:"Repo issues",value: "`git repo-issue <owner/repo>`",inline: true},
+        {name:"Repo pulls",value: "`git repo-pull <owner/repo>`",inline: true},
       )
       .setFooter('Check [git about] to know about me 🤖');
     message.channel.send(embed);

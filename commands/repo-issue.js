@@ -3,8 +3,8 @@ const Discord = require("discord.js");
 const config = require("../config.json");
 
 module.exports = {
-  name: "pulls",
-  description: "Lists repo PRs",
+  name: "repo-issue",
+  description: "Tells repo issues",
   async execute(message, args) {
     var randomColor = Math.floor(Math.random() * 16777215).toString(16);
     const trim = (str, max) =>
@@ -14,24 +14,10 @@ module.exports = {
       return message.channel.send("You need to supply a search term!");
     }
 
-    var orgname = null;
-
-    for (var i = 0; i < config.user.length; i++) {
-      if (config.user[i].guildname === message.guild.name) {
-        orgname = config.user[i].org;
-      }
-    }
-
-    if (!orgname) {
-      return message.channel.send(
-        "No organization added. Please add organization using git addorg <name>"
-      );
-    }
-
     var list = [];
 
     list = await fetch(
-      `https://api.github.com/repos/${orgname}/${args}/pulls`,
+      `https://api.github.com/repos/${args}/issues`,
       {
         headers: {
           authorization: "token " + process.env.GITHUB_TOKEN,
@@ -41,15 +27,15 @@ module.exports = {
 
     const embed = new Discord.MessageEmbed()
       .setColor("#" + randomColor)
-      .setTitle("Repo PRs");
+      .setTitle("Repo Issues");
 
     if (list.length) {
       for (let i = 0; i < list.length && i<24; i++) {
-        var link = trim(list[i].html_url, 1024);
-        var issue = trim(list[i].title, 1024);
+        var link = list[i].html_url;
+        var issue = list[i].title;
 
         embed.addFields({
-          name: "PR #" + list[i].number,
+          name: "Issue #" + list[i].number,
           value: `[${issue}](${link})`,
           inline: true,
         });
@@ -63,7 +49,7 @@ module.exports = {
     } else {
       embed.addFields({
         name: "error",
-        value: "This repo has no PR",
+        value: "This repo has no issues",
       });
     }
 

@@ -1,6 +1,7 @@
 const fetch = require("node-fetch");
 const Discord = require("discord.js");
 const config = require("../config.json");
+const info = require("../controllers/info");
 
 module.exports = {
   name: "org",
@@ -12,15 +13,12 @@ module.exports = {
 
     var orgname = null;
 
-    for (var i = 0; i < config.user.length; i++) {
-      if (config.user[i].guildname === message.guild.name) {
-        orgname = config.user[i].org;
-      }
-    }
+      orgname=await info.execute(message.guild.name);
+      console.log(orgname);   
 
     if (!args.length) {
       if (!orgname)
-        return message.channel.send("You need to supply a search term!");
+        return message.channel.send("You need to supply a search term!.\n You can also register your organization by using `git addorg <orgname>`.");
       else args = orgname;
     }
 

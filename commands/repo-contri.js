@@ -11,7 +11,7 @@ module.exports = {
       str.length > max ? `${str.slice(0, max - 3)}...` : str;
 
     if (!args.length) {
-      return message.channel.send("You need to supply a search term!");
+      return message.channel.send(" You need to supply the repo name by using `git repo-contri <owner/repo>`.");
     }
 
     var list = [];

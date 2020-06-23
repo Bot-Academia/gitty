@@ -19,6 +19,9 @@ module.exports = {
       .addFields(
           {name:"You need to be logined in to use the above commands!", value:"Run this command to login `git adduser <github_username>`"}
       )
+      .addFields(
+        {name:"You can also see other users info.", value:"Run this command  `git user-info <github_username>`.\n Follow this pattern for other commands."}
+    )
       .setFooter('Check [git about] to know about me 🤖');
     message.channel.send(embed);
 

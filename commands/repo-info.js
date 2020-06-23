@@ -1,6 +1,7 @@
 const fetch = require("node-fetch");
 const Discord = require("discord.js");
 const config = require("../config.json");
+const info = require("../controllers/info");
 
 module.exports = {
   name: "repo-info",
@@ -10,9 +11,34 @@ module.exports = {
     const trim = (str, max) =>
       str.length > max ? `${str.slice(0, max - 3)}...` : str;
 
-    if (!args.length) {
-      return message.channel.send(" You need to supply the repo name by using `git repo-info <owner/repo>`.");
-    }
+    
+      var orgname = null;
+
+
+      args=String(args);
+
+
+      if (!args.length) {
+        return message.channel.send(" You need to supply the repo name by using `git repo-info <owner/repo>`.\n If your organization is registered then use `git repo-info <repo>`");
+      }
+
+    
+
+
+    if (!args.includes('/')) {
+      if(message.guild===null){
+        return message.channel.send(" You need to supply the repo name by using `git repo-contri <owner/repo>`.");
+      }
+      else{
+      orgname=await info.execute(message.guild.name);
+      if (!orgname)
+      return message.channel.send("You need to supply the repo name by using `git repo-contri <owner/repo>`.\n You can also register your organization by using `git addorg <orgname>`.");
+    else {args = orgname+'/'+args;
+          console.log("ok");
+  }
+  }      
+  }
+
 
     var list = [];
 

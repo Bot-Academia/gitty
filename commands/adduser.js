@@ -12,7 +12,7 @@ module.exports = {
 
 
     if (!args.length) {
-      return message.channel.send("You need to supply a search term!");
+      return message.channel.send("You need to supply a search term! in this way  `git adduser <username>`.");
     }
     
 

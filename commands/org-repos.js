@@ -11,6 +11,10 @@ module.exports = {
     const trim = (str, max) =>
       str.length > max ? `${str.slice(0, max - 3)}...` : str;
 
+      if(message.guild===null){
+        return message.channel.send("I can't execute that command inside DMs!");
+      }
+
     var orgname = null;
 
       orgname=await info.execute(message.guild.name);

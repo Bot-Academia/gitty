@@ -5,6 +5,11 @@ module.exports = {
   name: "help-org",
   description: "shows command list",
   execute(message, args) {
+   
+    if(message.guild===null){
+      return message.channel.send("I can't execute that command inside DMs!");
+    }
+
     const embed = new Discord.MessageEmbed()
       .setColor("#EFFF00")
       .setTitle("Gitty Org Command list")

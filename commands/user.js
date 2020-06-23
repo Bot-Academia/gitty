@@ -38,6 +38,7 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
       .setColor("#" + randomColor)
       .setTitle("Github User")
+      .setThumbnail(list.avatar_url)
       .addFields(
         { name: "Name", value: list.name },
         { name: "Location", value: list.location },

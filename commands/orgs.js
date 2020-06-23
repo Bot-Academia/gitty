@@ -13,6 +13,10 @@ module.exports = {
 
     var orgname = null;
 
+    if(message.guild===null){
+      return message.channel.send("I can't execute that command inside DMs!");
+    }
+
       orgname=await info.execute(message.guild.name);
       console.log(orgname);   
 

@@ -1,5 +1,6 @@
 const fetch = require("node-fetch");
 const Discord = require("discord.js");
+const userinfo = require("../controllers/user-info");
 
 module.exports = {
   name: "user-following",
@@ -9,9 +10,15 @@ module.exports = {
     // const trim = (str, max) =>
     //   str.length > max ? `${str.slice(0, max - 3)}...` : str;
 
-    if (!args.length) {
-      return message.channel.send("You need to supply a search term!");
-    }
+    var username = null;
+
+    username=await userinfo.execute(message.author.id);
+    console.log(username);   
+
+    if (!username)
+    return message.channel.send(" You need to register yourself by using `git adduser <username>`.");
+
+    args=username;
 
     var list = [];
     list = await fetch(`https://api.github.com/users/${args}/following`, {

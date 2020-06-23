@@ -16,6 +16,7 @@ var guildcollection=null;
 bot.once('ready', () => {
 	console.log('Ready!');
 	guildcollection=bot.guilds.cache;
+	bot.user.setActivity(' git help ');
 });
 
 

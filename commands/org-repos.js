@@ -4,7 +4,7 @@ const config = require("../config.json");
 const info = require("../controllers/info");
 
 module.exports = {
-  name: "org-info",
+  name: "org-repos",
   description: "Tells org info",
   async execute(message, args) {
     var randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -23,33 +23,40 @@ module.exports = {
     }
 
     var list = [];
-    list = await fetch(`https://api.github.com/orgs/${args}`, {
+    list = await fetch(`https://api.github.com/orgs/${args}/repos`, {
       headers: {
         authorization: "token " + process.env.GITHUB_TOKEN,
       },
     }).then((response) => response.json());
 
-    var things = [list.description, list.public_repos, list.email, list.blog];
-    var display = [];
-    for (let i = 0; i < things.length; i += 1) {
-      if (things[i]) {
-        display.push(things[i]);
-      } else {
-        display.push("No info given");
-      }
-    }
-
     const embed = new Discord.MessageEmbed()
-      .setColor("#" + randomColor)
-      .setTitle("Github Org")
-      .setThumbnail(list.avatar_url)
-      .addFields(
-        { name: "Description", value: trim(display[0], 1024) },
-        { name: "Public Repos of this org", value: trim(display[1], 1024) },
-        { name: "Email", value: trim(display[2], 1024) },
-        { name: "Website", value: trim(display[3], 1024) }
-      );
+    .setColor("#" + randomColor)
+    .setTitle("repositories Count: "+ list.length);
 
-    message.channel.send(embed);
+  if (list.length) {
+    for (let i = 0; i < list.length && i<24; i++) {
+      var link = list[i].html_url;
+      var repos = list[i].name;
+        var count = i + 1;
+      embed.addFields({
+        name: "repo #" + count,
+        value: `[${repos}](${link})`,
+        inline: true,
+      });
+    }
+    if(list.length>25){
+        embed.addFields({
+            name: "Limit Reached",
+            value: "25 is the max limit",
+          });
+    }
+  } else {
+    embed.addFields({
+      name: "error",
+      value: "This org has no repos",
+    });
+  }
+
+  message.channel.send(embed);
   },
 };

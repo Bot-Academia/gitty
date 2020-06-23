@@ -15,10 +15,12 @@ module.exports = {
     username=await userinfo.execute(message.author.id);
     console.log(username);   
 
-    if (!username)
-    return message.channel.send(" You need to register yourself by using `git adduser <username>`.");
-
-    args=username;
+    if (!args.length) {
+      if (!username)
+      return message.channel.send(" You need to register yourself by using `git adduser <username>`.");
+      else
+      args=username;
+  } 
 
     var list = [];
     list = await fetch(`https://api.github.com/users/${args}/starred`, {

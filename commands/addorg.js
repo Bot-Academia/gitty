@@ -11,6 +11,8 @@ module.exports = {
   guildOnly: true,
  async execute(message, args) {
 
+  if (message.member.hasPermission('ADMINISTRATOR')) {
+
 
     if (!args.length) {
       return message.channel.send("You need to supply a search term! in this way  `git adduser <username>`.");
@@ -31,7 +33,9 @@ module.exports = {
     }
     else
       message.channel.send("No such organization exists on github.");
-     
+  }
+  else
+   return message.author.reply("You dont have permission to use this command only administrator can use this command.");    
 
     
         

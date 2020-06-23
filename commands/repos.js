@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const userinfo = require("../controllers/user-info");
 
 module.exports = {
-  name: "user-repos",
+  name: "user-repo",
   description: "Tells github info",
   async execute(message, args) {
     var randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -39,6 +39,7 @@ module.exports = {
       embed.addFields({
         name: "repo #" + count,
         value: `[${follower}](${link})`,
+        inline: true,
       });
     }
     if(list.length>25){

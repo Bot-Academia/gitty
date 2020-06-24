@@ -35,7 +35,7 @@ module.exports = {
       message.channel.send("No such organization exists on github.");
   }
   else
-   return message.author.reply("You dont have permission to use this command only administrator can use this command.");    
+   return message.reply("You dont have permission to use this command only administrator can use this command.");    
 
     
         

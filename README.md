@@ -42,7 +42,7 @@ To know server Stats.
 
 To know server memberinfo.
 
-
+More command documentation to be added soon!
 
 
 

@@ -2,6 +2,7 @@ const fetch = require("node-fetch");
 const Discord = require("discord.js");
 const config = require("../config.json");
 const info = require("../controllers/info");
+require('dotenv').config();
 
 module.exports = {
   name: "org-info",

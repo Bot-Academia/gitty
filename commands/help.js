@@ -17,6 +17,7 @@ module.exports = {
         {name:'To know more user commands 😎',value: '`git help-user`'},
         {name:'To know more orgs commands 👯',value: '`git help-org`'},
         {name:'To know more repo commands 📂',value: '`git help-repo`'},
+        {name:'To integrate webhooks ⚓',value: '`git help-hook`'},
       )
       .setFooter('Check [git about] to know about me 🤖');
     message.channel.send(embed);

@@ -80,7 +80,7 @@ module.exports = {
     }
 
     else{
-      message.author.reply("You dont have permission to use this command only administrator can use this command.");
+      message.reply("You dont have permission to use this command only administrator can use this command.");
     }
 
 }

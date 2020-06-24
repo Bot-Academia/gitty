@@ -1,6 +1,7 @@
 const fetch = require("node-fetch");
 const Discord = require("discord.js");
 const userinfo = require("../controllers/user-info");
+require('dotenv').config();
 
 module.exports = {
   name: "user-follower",

@@ -11,7 +11,7 @@ module.exports = {
   guildOnly: true,
  async execute(message, args) {
 
-  if (message.member.hasPermission('ADMINISTRATOR')) {
+  if (message.member.hasPermission('ADMINISTRATOR') || message.member.hasPermission('MANAGE_GUILD')) {
 
 
     if (!args.length) {

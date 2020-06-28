@@ -1,7 +1,7 @@
 # Gitty
 A discord-bot for open source communities
 <br>
-![Discord](https://img.shields.io/discord/722698945800831030?color=Discord&label=Discord&logo=Discord&logoColor=Discord&style=for-the-badge)
+![Discord](https://img.shields.io/discord/722698945800831030?color=Discord&label=Discord&logo=Discord&logoColor=Discord&style=for-the-badge) ![GitHub pull requests](https://img.shields.io/github/issues-pr/bot-academia/gitty?style=for-the-badge) ![GitHub issues](https://img.shields.io/github/issues/bot-academia/gitty?color=red&style=for-the-badge) ![GitHub](https://img.shields.io/github/license/bot-academia/gitty?color=yellow&style=for-the-badge) ![GitHub top language](https://img.shields.io/github/languages/top/bot-academia/gitty?style=for-the-badge)
 
 Gitty is a bot for [Discord](https://discord.com) that allows open source communities work with github with out leaving Discord . It integrates github api for giving the information you need to run your community.
 

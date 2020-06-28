@@ -6,45 +6,23 @@ A discord-bot for open source communities
 Gitty is a bot for [Discord](https://discord.com) that allows open source communities work with github with out leaving Discord . It integrates github api for giving the information you need to run your community.
 
 
-## commands
+# Introduction
 
-`git help`
+Gitty is a open source discord bot made using discord.js a powerful javascript library build upon Node.JS. Gitty is made to help open source communities that are using Discord. As we all know that communication plays a major role in open source world and as these organizations are becoming larger everyday there should be a efficient method to resolve this issue. Gitty provides you enriching features to reduce communication gap in a community and streamline workflow.
 
-To know all the commands.
+## What's under the hood?
 
-`git addorg`
+While building Gitty the main aim in our head was to bring github related info over to discord. For making this possible we used the Github api
 
-Add default organization for your server.After adding organization you can access PRs and issues in any repo of that organization.Pass org name as argument.
+```
+https://api.github.com/orgs/Bot-Academia
+```
 
-`git org`
+The github API is extremly feature rich and provided us with everything we needed to make this bot possible.
 
-To know info of any organization on github.Pass orgname as an argument or check yours by simply typing git org.
+## Why you need gitty?
 
-`git pulls`
-
-To know PRs in any repo of the default organization.Pass reponame as argument.
-
-`git issues`
-
-To know Issues in any repo of the deafault organization.Pass reponame as argument.
-
-`git user`
-
-To know about any github user. Pass username as an argument.
-
-`git quote`
-
-To get some motivation.
-
-`git serverinfo`
-
-To know server Stats.
-
-`git memberinfo`
-
-To know server memberinfo.
-
-More command documentation to be added soon
+Gitty is a github oriented bot, it has all the features that any org or personal user will require during their development process. We ourselves used it for the development of gitty website and documentation. The webhook Feature made it extremly easy for us to get notified with all the changes happening inside the repo.
 
 
 

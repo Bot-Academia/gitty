@@ -33,10 +33,12 @@ module.exports = {
       }      
     }
 
-    var list = [];
+    // checker for fork
 
-    list = await fetch(
-      `https://api.github.com/repos/${args}/issues`,
+    var check = [];
+
+    check = await fetch(
+      `https://api.github.com/repos/${args}`,
       {
         headers: {
           authorization: "token " + process.env.GITHUB_TOKEN,
@@ -45,33 +47,50 @@ module.exports = {
     ).then((response) => response.json());
 
     const embed = new Discord.MessageEmbed()
-      .setColor("#" + randomColor)
-      .setTitle("Repo Issues");
+    .setColor("#" + randomColor)
+    .setTitle("Repo Issues");
+      console.log(check.fork)
+    if(!check.fork){
+      var list = [];
 
-    if (list.length) {
-      for (let i = 0; i < list.length && i<24; i++) {
-        var link = list[i].html_url;
-        var issue = list[i].title;
+      list = await fetch(
+        `https://api.github.com/repos/${args}/issues`,
+        {
+          headers: {
+            authorization: "token " + process.env.GITHUB_TOKEN,
+          },
+        }
+      ).then((response) => response.json());
 
+      if (list.length) {
+        for (let i = 0; i < list.length && i<24; i++) {
+          var link = list[i].html_url;
+          var issue = list[i].title;
+  
+          embed.addFields({
+            name: "Issue #" + list[i].number,
+            value: `[${issue}](${link})`,
+            inline: true,
+          });
+        }
+        if(list.length>25){
+          embed.addFields({
+              name: "Limit Reached",
+              value: "25 is the max limit",
+            });
+      }
+      } else {
         embed.addFields({
-          name: "Issue #" + list[i].number,
-          value: `[${issue}](${link})`,
-          inline: true,
+          name: "error",
+          value: "This repo has no issues",
         });
       }
-      if(list.length>25){
-        embed.addFields({
-            name: "Limit Reached",
-            value: "25 is the max limit",
-          });
-    }
-    } else {
+    }else{
       embed.addFields({
         name: "error",
-        value: "This repo has no issues",
+        value: "This is a forked repo",
       });
     }
-
     message.channel.send(embed);
   },
 };

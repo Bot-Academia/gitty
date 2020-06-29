@@ -57,7 +57,7 @@ module.exports = {
     }
   } else {
     embed.addFields({
-      name: "error",
+      name: "Error",
       value: "This User has no followers",
     });
   }

@@ -21,7 +21,7 @@ module.exports = {
    
     if (!args.length) {
       if (!username)
-      return message.channel.send(" You need to register yourself by using `git adduser <username>`.");
+      return message.channel.send("You need to register yourself by using `git adduser <username>`.");
       else
       args=username;
   } 

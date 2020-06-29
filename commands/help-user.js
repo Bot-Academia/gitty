@@ -14,7 +14,7 @@ module.exports = {
         {name:"Github Following",value: "`git user-following`",inline: true},
         {name:"Github Repos",value: "`git user-repo`",inline: true},
         {name:"Github Organisations",value: "`git user-orgs`",inline: true},
-        {name:"Github Starred repo",value: "`git user-stars`",inline: true},
+        {name:"Github Starred Repo",value: "`git user-stars`",inline: true},
       )
       .addFields(
           {name:"You need to be logined in to use the above commands!", value:"Run this command to login `git adduser <github_username>`"}

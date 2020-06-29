@@ -15,7 +15,7 @@ module.exports = {
       .addFields(
         { name: "Org Details", value: "`git org-info`", inline: true },
         { name: "Org Members", value: "`git org-member`", inline: true },
-        { name: "Org repos", value: "`git org-repos`", inline: true }
+        { name: "Org Repos", value: "`git org-repo`", inline: true }
       )
       .addFields({
         name:

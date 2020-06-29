@@ -74,7 +74,7 @@ module.exports = {
     },
   })
     .then(res=>{console.log(res.data)
-    message.channel.send("Webhook added!!");})
+    message.channel.send("Webhook added!");})
     .catch(error=>{console.log(error)
     message.channel.send("There some issue check documentation or use `git help-hook`")});
     }

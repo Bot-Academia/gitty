@@ -21,7 +21,7 @@ module.exports = {
              .setTitle('Quote')
              .addFields(
                  { name: 'Quote', value: trim(list[num].text, 1024) },
-                 { name: 'author', value: trim(list[num].author, 1024) },
+                 { name: 'Author', value: trim(list[num].author, 1024) },
              );
          message.channel.send(embed)
  

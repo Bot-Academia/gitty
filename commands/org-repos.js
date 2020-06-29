@@ -5,7 +5,7 @@ const info = require("../controllers/info");
 require('dotenv').config();
 
 module.exports = {
-  name: "org-repos",
+  name: "org-repo",
   description: "Tells org info",
   async execute(message, args) {
     var randomColor = Math.floor(Math.random() * 16777215).toString(16);
@@ -36,7 +36,7 @@ module.exports = {
 
     const embed = new Discord.MessageEmbed()
     .setColor("#" + randomColor)
-    .setTitle("repositories Count: "+ list.length);
+    .setTitle("Repositories Count: "+ list.length);
 
   if (list.length) {
     for (let i = 0; i < list.length && i<24; i++) {
@@ -44,7 +44,7 @@ module.exports = {
       var repos = list[i].name;
         var count = i + 1;
       embed.addFields({
-        name: "repo #" + count,
+        name: "Repo #" + count,
         value: `[${repos}](${link})`,
         inline: true,
       });
@@ -57,7 +57,7 @@ module.exports = {
     }
   } else {
     embed.addFields({
-      name: "error",
+      name: "Error",
       value: "This org has no repos",
     });
   }

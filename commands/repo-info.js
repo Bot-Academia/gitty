@@ -20,7 +20,7 @@ module.exports = {
 
 
       if (!args.length) {
-        return message.channel.send(" You need to supply the repo name by using `git repo-info <owner/repo>`.\n If your organization is registered then use `git repo-info <repo>`");
+        return message.channel.send("You need to supply the repo name by using `git repo-info <owner/repo>`.\n If your organization is registered then use `git repo-info <repo>`");
       }
 
     
@@ -28,7 +28,7 @@ module.exports = {
 
     if (!args.includes('/')) {
       if(message.guild===null){
-        return message.channel.send(" You need to supply the repo name by using `git repo-contri <owner/repo>`.");
+        return message.channel.send("You need to supply the repo name by using `git repo-contri <owner/repo>`.");
       }
       else{
       orgname=await info.execute(message.guild.name);
@@ -64,13 +64,13 @@ module.exports = {
 
     const embed = new Discord.MessageEmbed()
     .setColor("#" + randomColor)
-    .setTitle("Repo Name "+ list.name)
+    .setTitle("Repo Name: "+ list.name)
     .addFields(
-      { name: "description", value: list.description },
+      { name: "Description", value: list.description },
       { name: "Link",  value: `[${list.name}](${list.html_url})` },
-      { name: "fork count", value: list.forks_count },
-      { name: "language", value: list.language },
-      { name: "star", value: list.stargazers_count }
+      { name: "Fork count", value: list.forks_count },
+      { name: "Language", value: list.language },
+      { name: "Star", value: list.stargazers_count }
     );
   message.channel.send(embed);
   },

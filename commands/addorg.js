@@ -7,7 +7,7 @@ const fetch = require("node-fetch");
 
 module.exports = {
   name: "addorg",
-  description: "sets the org name",
+  description: "Register org with gitty",
   guildOnly: true,
  async execute(message, args) {
 

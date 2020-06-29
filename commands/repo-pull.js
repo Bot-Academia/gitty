@@ -18,12 +18,12 @@ module.exports = {
       args=String(args);
       
       if (!args.length) {
-        return message.channel.send(" You need to supply the repo name by using `git repo-info <owner/repo>`.\n If your organization is registered then use `git repo-info <repo>`");
+        return message.channel.send("You need to supply the repo name by using `git repo-info <owner/repo>`.\n If your organization is registered then use `git repo-info <repo>`");
       }
 
     if (!args.includes('/')) {
       if(message.guild===null){
-        return message.channel.send(" You need to supply the repo name by using `git repo-contri <owner/repo>`.");
+        return message.channel.send("You need to supply the repo name by using `git repo-contri <owner/repo>`.");
       }
       else{
       orgname=await info.execute(message.guild.name);
@@ -67,7 +67,7 @@ module.exports = {
     }
     } else {
       embed.addFields({
-        name: "error",
+        name: "Error",
         value: "This repo has no prs",
       });
     }
